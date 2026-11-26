@@ -197,7 +197,7 @@ print("l6_bytes", rec_l6_bytes)
 # remove 2 bytes of header (length info)
 
 def decapsulate_l6(data_bytes):
-    return { "payload_length": struct.unpack("!H",data_bytes[0:2])[0], "payload" :data_bytes[2:]}
+    return { "payload_length": struct.unpack("!H",data_bytes[0:2])[0], "payload" :data_bytes[2:].decode("utf-8")}
 
 rec_l7_bytes = decapsulate_l6(rec_l6_bytes["payload"])
 
